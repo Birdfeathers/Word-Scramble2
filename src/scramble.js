@@ -2,72 +2,6 @@ import React, { useState, useEffect, useRef} from "react";
 import dictionary from './dictionary'
 
 
-
-
-// function copyArrayintoArrayList(arr, prevArr, arrList, num)
-// {
-//   for(let j = 0; j < prevArr.length; j++)
-//     {
-//       let current = prevArr[j];
-//       if(!arrList[j]) 
-//         arrList.push(current);
-//       else{
-//          for(let k = 0; k < current.length; k++)
-//         {
-//           if(!arrList[j].includes(current[k])){
-//             arrList[j].push(current[k]);
-//           }
-//         }
-//       }
-//     }
-//   if(num === 0) arrList.push(arr);
-//   else {
-//     for(let i = 0; i < arr.length; i++)
-//     {
-//       if(!arrList[arrList.length -1]. includes(arr[i]))
-//       arrList[arrList.length - 1].push(arr[i]);
-//     }
-//   }
-//   return arrList;
-// }
-
-// function returnSorted([arr])
-// {
-//   let arr2 = [];
-//   let totalArr = [];
-//  for(let i = 0;  i < arr.length; i++)
-//    {
-//      let remaining = arr.slice();
-//      remaining.splice(i, 1);
-//      let returnedNum = returnSorted([remaining, totalArr]);
-//      let endings = returnedNum[0];
-//      totalArr = copyArrayintoArrayList(endings, returnedNum[1], totalArr, i);
-//      if(endings.length == 0) return [[arr[i]], totalArr];
-//      for(let j = 0; j < endings.length; j++)
-//        {
-//          if(!arr2.includes(arr[i] + endings[j])){
-         
-//              arr2.push(arr[i] + endings[j]);
-//             }
-
-//        }
-     
-//    }
-//    return [arr2, totalArr];
-// }
-
-
-// function checkWord(wordCheck)
-// {
-
-//   const wordArr = dictionary.split('\n');
-//   for(let i = 0; i < wordArr.length - 1; i++)
-//   {
-//     if(wordArr[i] === wordCheck) return true;
-//   }
-//   return false;
-// }
-
 function defineCombo(letters)  // takes a cluster of letters and tallies how many of each letter
 {
   let word = new Array(26).fill(0); // represents count of 26 letters of alphabit
@@ -82,7 +16,6 @@ function checkWord(word, letters)
 {
   let lettersCombo = defineCombo(letters);
   let wordCombo = defineCombo(word);
-  
   let result = 1; // 1 = full scramble, 2 = partial scramble, neg = impossible word
   wordCombo.forEach((number, indx) => {
     if(wordCombo[indx] > lettersCombo[indx]) result = -1;
@@ -143,11 +76,7 @@ function Scramble()
             setScramble(myContainer.current.value)
             const checkDict = checkDictionary(myContainer.current.value);
             setWords(checkDict[0]);
-            setPartial(checkDict[1]);
-            // const sorted = returnSorted([myContainer.current.value.split('')]);
-            // setWords(sorted[0].filter(word => checkWord(word)));
-            // console.log(sorted);
-            // setWordLists(sorted[1]);
+            setPartial(checkDict[1].sort((a, b) => {return b.length - a.length}));
 
         }}>
             <input type = "text" ref = {myContainer}></input>

@@ -1,5 +1,4 @@
-const dictionary = `
-aardvark
+const dictionary = `aardvark
 aardwolf
 aaron
 aback
@@ -2612,6 +2611,7 @@ armistice
 armless
 armlet
 armlets
+armor
 armour
 armoured
 armourer
@@ -58136,6 +58136,22 @@ spunk
 pow
 pita
 brie
+rum
+yum
+bio
+bod
+bios
+stat
+gnarly
+odor
+subpar
+pars
+hipper
+rend
+molt
+merlot
+swatch
+swath
 `;
 
 export default dictionary; 
