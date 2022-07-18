@@ -76,7 +76,7 @@ function Scramble()
             setScramble(myContainer.current.value)
             const checkDict = checkDictionary(myContainer.current.value);
             setWords(checkDict[0]);
-            setPartial(checkDict[1].sort((a, b) => {return b.length - a.length}));
+            setPartial(checkDict[1].sort().sort((a, b) => {return b.length - a.length}));
 
         }}>
             <input type = "text" ref = {myContainer}></input>
